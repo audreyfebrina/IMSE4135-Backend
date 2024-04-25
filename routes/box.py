@@ -2,9 +2,9 @@ from fastapi import APIRouter, Body, HTTPException, status
 from fastapi.responses import Response
 from bson import ObjectId
 from pymongo import ReturnDocument
-from utils.py_objectid import PyObjectId
+from util.py_objectid import PyObjectId
 from app import box_collection
-from models.box import BoxCollection, BoxModel, UpdateBoxModel
+from schemas.box import BoxCollection, BoxModel, UpdateBoxModel
 
 box_router = APIRouter(
     prefix="/boxes",

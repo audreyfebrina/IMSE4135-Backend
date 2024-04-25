@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Body, HTTPException, status
 from fastapi.responses import Response
 from pymongo import ReturnDocument
-from models.officer import (
+from schemas.officer import (
     OfficerModel,
     UpdateOfficerModel,
     OfficerCollection,
@@ -9,8 +9,8 @@ from models.officer import (
     LoginModel,
 )
 from app import officer_collection
-from models.prisoner import PrisonerModel
-from utils.create_objectid import create_objectid
+from schemas.prisoner import PrisonerModel
+from util.create_objectid import create_objectid
 
 officer_router = APIRouter(
     prefix="/officers",

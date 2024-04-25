@@ -4,10 +4,10 @@ from fastapi.responses import Response
 from pydantic import BaseModel, Field
 from bson import ObjectId
 from pymongo import ReturnDocument
-from utils.create_objectid import create_objectid
-from utils.py_objectid import PyObjectId
+from util.create_objectid import create_objectid
+from util.py_objectid import PyObjectId
 from app import bag_collection
-from models.bag import BagModel, BagCollection
+from schemas.bag import BagModel, BagCollection
 
 bag_router = APIRouter(
     prefix="/bags",

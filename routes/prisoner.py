@@ -2,10 +2,10 @@ from fastapi import APIRouter, Body, HTTPException, status
 from fastapi.responses import Response
 from bson import ObjectId
 from pymongo import ReturnDocument
-from utils.create_objectid import create_objectid
-from models.prisoner import PrisonerModel, UpdatePrisonerModel, PrisonerCollection
+from util.create_objectid import create_objectid
+from schemas.prisoner import PrisonerModel, UpdatePrisonerModel, PrisonerCollection
 from app import prisoner_collection
-from utils.hk_time_now import hk_time_now
+from util.hk_time_now import hk_time_now
 
 prisoner_router = APIRouter(
     prefix="/prisoners",

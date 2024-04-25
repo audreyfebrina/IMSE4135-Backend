@@ -2,7 +2,7 @@ from fastapi import APIRouter, Body, HTTPException, status
 from fastapi.responses import Response
 from bson import ObjectId
 from pymongo import ReturnDocument
-from models.shelf import ShelfModel, UpdateShelfModel, ShelfCollection
+from schemas.shelf import ShelfModel, UpdateShelfModel, ShelfCollection
 from app import shelf_collection
 
 shelf_router = APIRouter(

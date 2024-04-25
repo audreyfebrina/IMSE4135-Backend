@@ -3,6 +3,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 
 import motor.motor_asyncio
@@ -15,6 +16,20 @@ load_dotenv(dotenv_path=dotenv_path)
 app = FastAPI(
     title="IMSE4135",
     summary="Backend for IMSE4135 project.",
+)
+
+origins = [
+    "http://localhost",
+    "http://localhost:8000",
+    "*"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 mongodb_uri = str(os.getenv("MONGODB_URI"))
@@ -35,9 +50,11 @@ from routes.bag import bag_router
 from routes.box import box_router
 from routes.officer import officer_router
 from routes.prisoner import prisoner_router
+from routes.ml import ml_router
 
 app.include_router(shelf_router)
 app.include_router(bag_router)
 app.include_router(box_router)
 app.include_router(officer_router)
 app.include_router(prisoner_router)
+app.include_router(ml_router)
